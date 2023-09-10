@@ -7,8 +7,9 @@ export default class Etudiants{
 
     }
 
-  static all = function(){ 
-       let etudiants=  fetch(ENDPOINT).then(res=>res.json())
-          .then(etudiants=>console.log(etudiants) )
+  static all = async function(){ 
+       const res= await fetch(ENDPOINT)
+       const etudiants= await res.json()
+        return etudiants
         }
 }
