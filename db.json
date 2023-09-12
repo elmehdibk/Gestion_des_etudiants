@@ -1,5 +1,7 @@
 {
     "edtudiants":[
         {"id":1,"name":"El mehdi","date":"2007/08/15","age":21,"note":18}
+        ,{"id":2,"name":"slimani","date":"2003/20/09","age":28,"note":15}
+
     ]
 }

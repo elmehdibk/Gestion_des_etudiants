@@ -25,6 +25,6 @@ const renderEtidiants =()=>{
 
     const body = document.querySelector('.liste-etudiants')
 
-    displayEtudiants().then(data=> body.innerHTML=data); 
+    displayEtudiants().then(data=> body.innerHTML=data.join(' ')); 
 }
 renderEtidiants()
