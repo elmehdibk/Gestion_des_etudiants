@@ -12,7 +12,7 @@ const displayEtudiants = async function(){
                     <td>${date}</td>
                     <td>${age}</td>
                     <td>${note}</td>
-                    <td></td>
+                    <td><button class='btn btn-danger'>Suprimer</button></td>
 
                 </tr>
             
