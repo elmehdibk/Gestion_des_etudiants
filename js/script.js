@@ -27,4 +27,12 @@ const renderEtidiants =()=>{
 
     displayEtudiants().then(data=> body.innerHTML=data.join(' ')); 
 }
+
+const init=function(){
+    const refreshButton=document.querySelector('#Refresh')
+    refreshButton.addEventListener('click',()=>{
+        renderEtidiants()
+    })
+}
+init()
 renderEtidiants()
