@@ -5,12 +5,14 @@ const displayEtudiants = async function(){
        return res.map((e)=>{
             const {id,name,date,note} = e
 
+            const etudiant = new Etudiants(name,date,note)
+            
             return `
                 <tr>
                     <td>${id}</td>
-                    <td>${name}</td>
-                    <td>${date}</td>
-                    <td>${note}</td>
+                    <td>${etudiant.name}</td>
+                    <td>${etudiant.getAge()}</td>
+                    <td>${etudiant.note}</td>
                     <td><button class='btn btn-danger'>Suprimer</button></td>
 
                 </tr>
