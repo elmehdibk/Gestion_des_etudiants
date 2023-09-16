@@ -12,7 +12,7 @@ const displayEtudiants = async function(){
                     <td>${id}</td>
                     <td>${etudiant.name}</td>
                     <td>${etudiant.getAge()}</td>
-                    <td>${etudiant.note}</td>
+                    <td><span class="badge ${etudiant.isAdmitted()?'bg-success':'bg-danger'}">${etudiant.note}/${etudiant.MAX_NOTE()}</span></td>
                     <td><button class='btn btn-danger'>Suprimer</button></td>
 
                 </tr>

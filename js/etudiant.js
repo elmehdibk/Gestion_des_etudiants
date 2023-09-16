@@ -6,9 +6,9 @@ export default class Etudiants{
         this.note=note
 
     }
-
+    MAX_NOTE=()=> 20
     getAge = ()=> new Date().getFullYear() - new Date(this.age).getFullYear() 
-
+    isAdmitted =()=> this.note >= 10 
   static all = async function(){ 
        const res= await fetch(ENDPOINT)
        const etudiants= await res.json()
