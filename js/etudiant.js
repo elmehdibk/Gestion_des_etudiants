@@ -14,7 +14,7 @@ export default class Etudiants{
        const etudiants= await res.json()
         return etudiants
         }
-
+        // http://localhost:3000/edtudiants(POST)
    addEtudiants =async function(){ 
         const res= await fetch(ENDPOINT,{
             method:'POST',
@@ -31,4 +31,18 @@ export default class Etudiants{
         console.log(res)
          return res
          }
+
+
+        // http://localhost:3000/edtudiants(DELETE)
+        static deleteEtudiants =async function(id){ 
+            const res= await fetch(ENDPOINT+'/'+id,{
+                method:'DELETE',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+        
+            })
+            // console.log(res)
+             return res
+             }
 }

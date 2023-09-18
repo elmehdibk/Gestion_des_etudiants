@@ -13,7 +13,7 @@ const displayEtudiants = async function(){
                     <td>${etudiant.name}</td>
                     <td>${etudiant.getAge()}</td>
                     <td><span class="badge ${etudiant.isAdmitted()?'bg-success':'bg-danger'}">${etudiant.note}/${etudiant.MAX_NOTE()}</span></td>
-                    <td><button class='btn btn-danger'>Suprimer</button></td>
+                    <td><button class='btn btn-danger delete' onclick='deleteEtudiant(${id})' >Suprimer</button></td>
 
                 </tr>
             
@@ -30,12 +30,21 @@ const addEtudiant =()=>{
 
 
 }
-const renderEtidiants =()=>{
 
-    const body = document.querySelector('.liste-etudiants')
-
-    displayEtudiants().then(data=> body.innerHTML=data.join(' ')); 
+window.deleteEtudiant =(id)=>{
+    Etudiants.deleteEtudiants(id).then(()=>alert('etudiant supprime'))
+    // console.log(id);
 }
+const renderEtidiants =()=>{
+    
+    const body = document.querySelector('.liste-etudiants')
+    
+    displayEtudiants().then(data=> {
+        body.innerHTML=data.join(' ')
+        init()}); 
+        
+    }
+   
 
 const init=function(){
     const refreshButton=document.querySelector('#Refresh')
@@ -46,6 +55,10 @@ const init=function(){
     addButton.addEventListener('click',(event)=>{
         addEtudiant(event)
     })
+
+    // const deleteButton =document.querySelector('.delete')
+    // deleteButton.addEventListener('click',(id)=>{
+    //     deleteEtudiant(id)
+    // })
 }
-init()
 renderEtidiants()
