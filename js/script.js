@@ -1,7 +1,35 @@
 import Etudiants from "./etudiant.js";
 
+let filterSettings={
+    'filterBy':'id',
+    'desc':false,
+}
+const desc =document.querySelector('#desc')
+
 const displayEtudiants = async function(){
     return Etudiants.all().then(function(res){
+       
+        desc.addEventListener('click',()=>{
+                filterSettings.desc=!filterSettings.desc;
+                console.log(filterSettings.desc); 
+                renderEtidiants()
+            })
+            
+            if (filterSettings.desc) {
+                desc.innerHTML='&#8595;'
+                res.sort((a,b)=>b[filterSettings.filterBy]-a[filterSettings.filterBy]);
+                
+        }else{
+            
+            desc.innerHTML='&#8593;'
+            res.sort((a,b)=>a[filterSettings.filterBy]-b[filterSettings.filterBy]);
+           
+        }
+
+    
+    
+    
+
        return res.map((e)=>{
             const {id,name,date,note} = e
 
@@ -32,7 +60,7 @@ const addEtudiant =()=>{
 }
 
 window.deleteEtudiant =(id)=>{
-    Etudiants.deleteEtudiants(id).then(()=>alert('etudiant supprime'))
+    Etudiants.deleteEtudiants(id)
     // console.log(id);
 }
 const renderEtidiants =()=>{
@@ -56,9 +84,5 @@ const init=function(){
         addEtudiant(event)
     })
 
-    // const deleteButton =document.querySelector('.delete')
-    // deleteButton.addEventListener('click',(id)=>{
-    //     deleteEtudiant(id)
-    // })
 }
 renderEtidiants()
