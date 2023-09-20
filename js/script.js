@@ -6,14 +6,14 @@ let filterSettings={
 }
 const desc =document.querySelector('#desc')
 
+desc.addEventListener('click',()=>{
+        filterSettings.desc=!filterSettings.desc;
+        console.log(filterSettings.desc); 
+        renderEtidiants()
+    })
 const displayEtudiants = async function(){
     return Etudiants.all().then(function(res){
        
-        desc.addEventListener('click',()=>{
-                filterSettings.desc=!filterSettings.desc;
-                console.log(filterSettings.desc); 
-                renderEtidiants()
-            })
             
             if (filterSettings.desc) {
                 desc.innerHTML='&#8595;'
@@ -85,4 +85,5 @@ const init=function(){
     })
 
 }
+
 renderEtidiants()
